@@ -96,7 +96,7 @@ class _GlobalLabelState extends State<GlobalLabel> {
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: 0.6),
+              color: Colors.black.withAlpha(1),
               borderRadius: const BorderRadius.all(
                 Radius.circular(5),
               ),

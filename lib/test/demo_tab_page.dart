@@ -51,7 +51,6 @@ class _DemoTabPageState extends State<DemoTabPage> {
       ),
     ];
   }
-
 }
 
 enum TabType { bottom, top }
@@ -187,7 +186,8 @@ class _GSYTabBarState extends State<TabWidget>
           onPageChanged: (index) {
             if (!_tabController!.indexIsChanging) {
               _tabController!.animateTo(index,
-                  curve: Curves.linear, duration: const Duration(milliseconds: 20));
+                  curve: Curves.linear,
+                  duration: const Duration(milliseconds: 20));
             }
             widget.onPageChanged?.call(index);
           },
@@ -203,8 +203,8 @@ class KeepAliveList extends StatefulWidget {
   _KeepAliveListState createState() => _KeepAliveListState();
 }
 
-class _KeepAliveListState extends State<KeepAliveList> with AutomaticKeepAliveClientMixin {
-
+class _KeepAliveListState extends State<KeepAliveList>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -216,6 +216,7 @@ class _KeepAliveListState extends State<KeepAliveList> with AutomaticKeepAliveCl
         return Card(
           ///设置阴影的深度
           elevation: 5.0,
+
           ///增加圆角
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -233,4 +234,3 @@ class _KeepAliveListState extends State<KeepAliveList> with AutomaticKeepAliveCl
     );
   }
 }
-

@@ -246,8 +246,10 @@ class NestedScrollViewRefreshIndicatorState
     final ThemeData theme = Theme.of(context);
     _valueColor = _positionController.drive(
       ColorTween(
-        begin: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 0.0),
-        end: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 1.0),
+        // begin: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 0.0),
+        begin: (widget.color ?? theme.colorScheme.primary).withAlpha(0),
+        // end: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 1.0),
+        end: (widget.color ?? theme.colorScheme.primary).withAlpha(1),
       ).chain(CurveTween(
         curve: const Interval(0.0, 1.0 / _kDragSizeFactorLimit),
       )),
@@ -262,8 +264,10 @@ class NestedScrollViewRefreshIndicatorState
       final ThemeData theme = Theme.of(context);
       _valueColor = _positionController.drive(
         ColorTween(
-          begin: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 0.0),
-          end: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 1.0),
+          // begin: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 0.0),
+          begin: (widget.color ?? theme.colorScheme.primary).withAlpha(0),
+          // end: (widget.color ?? theme.colorScheme.primary).withValues(alpha: 1.0),
+          end: (widget.color ?? theme.colorScheme.primary).withAlpha(1),
         ).chain(CurveTween(
           curve: const Interval(0.0, 1.0 / _kDragSizeFactorLimit),
         )),
@@ -399,7 +403,7 @@ class NestedScrollViewRefreshIndicatorState
     }
     _positionController.value =
         newValue.clamp(0.0, 1.0); // this triggers various rebuilds
-    if (_mode == _RefreshIndicatorMode.drag && _valueColor.value!.a == 0xFF) {
+    if (_mode == _RefreshIndicatorMode.drag && _valueColor.value!.alpha == 0xFF) {
       _mode = _RefreshIndicatorMode.armed;
     }
   }
